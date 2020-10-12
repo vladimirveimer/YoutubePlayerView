@@ -283,6 +283,17 @@ extension YoutubePlayerView {
         let command = "player.seekTo(\(seconds), \(allowSeekAhead));"
         webView.evaluateJavaScript(command, completionHandler: nil)
     }
+    
+    /// Sets the volume.
+    /// the JavaScript API:
+    ///   `https://developers.google.com/youtube/iframe_api_reference#setVolume`
+    ///
+    /// - Parameters:
+    ///     - volume: The volume.  Accepts an integer between 0 and 100.
+    public func setVolume(_ volume: Float) {
+        let command = "player.volume(\(volume))"
+        webView.evaluateJavaScript(command, completionHandler: nil)
+    }
 }
 
 // MARK:- Cueing methods
